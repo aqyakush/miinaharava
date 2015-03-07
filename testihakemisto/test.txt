@@ -1,0 +1,7 @@
+github problems
+
+ssh-add ~/.ssh/id_rsa
+could not open a connection to your authentication agent
+
+
+git@github.com:aqyakush/miinaharava.git
