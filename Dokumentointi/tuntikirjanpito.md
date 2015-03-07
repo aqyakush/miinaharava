@@ -1,0 +1,1 @@
+Githubiin tutustuminen ja asentaminen noin 1 tunti
