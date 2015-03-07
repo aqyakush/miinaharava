@@ -1,3 +1,3 @@
 # miinaharava
 Aineopintojen harjoitustyö: Ohjelmointi (periodi IV) kurssin projekti
-Kokeilu editointi
+Kokeilu editointi komas editointi
