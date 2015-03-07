@@ -1,1 +1,1 @@
-Githubiin tutustuminen ja asentaminen noin 1 tunti
+Githubiin tutustuminen ja asentaminen noin 1 tunti 3.7.2015 18:00-19:30
