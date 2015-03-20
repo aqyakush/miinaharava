@@ -4,3 +4,5 @@ Mietin luokkakaaviot 1 tunti 13.3 15-16
 Piirsin luokkakaavio 1 tunti 14.3 15-16
 Tein luokka board 3 tuntia 16.3 10-13
 Mietin pelin loogikka 1 tunti 17.3 10-11
+Mietin pelin loogikka ja koodasin 2 tuntia 19.3 10-12
+Taistelin Junit testijen kanssa 3 tuntua 20.3 11-14
