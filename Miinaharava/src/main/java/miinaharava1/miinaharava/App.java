@@ -8,6 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        int col= 10;
+        int row = 10;
+        Minefield board = new Minefield(col, row, 10);
     }
 }
