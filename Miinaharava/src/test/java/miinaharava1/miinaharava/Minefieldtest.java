@@ -17,14 +17,13 @@ import static org.junit.Assert.*;
  *
  * @author Anton
  */
-public class Minefieldtest {
+public class MinefieldTest {
     
-    public Minefieldtest() {
+    public MinefieldTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
-        Minefield kentta = new Minefield(10,10,10);
     }
     
     @AfterClass
@@ -38,51 +37,82 @@ public class Minefieldtest {
     @After
     public void tearDown() {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-     @Test
+    @Test
+    public void testGanetable(){
+        Minefield kentta = new Minefield(10,10,10);
+        assertTrue(kentta.gametable.length == 9);
+    }
+    @Test
+    public void testGanetable1(){
+        Minefield kentta = new Minefield(10,10,10);
+        assertTrue(kentta.gametable[1].length == 9);
+    }
+    
+    @Test
+    public void testcreateMines(){
+        Minefield kentta = new Minefield(10,10,10);
+        assertTrue(kentta.getMines() <= 10);   
+    }
+    
+    @Test
      public void testgetGameover() {
         Minefield kentta = new Minefield(10,10,10);
-        assertTrue(kentta.getGameover() == true);
+        assertFalse(kentta.getGameover());
      }
      
      @Test
-     public void testluodamiinat(){
-         Minefield kentta = new Minefield(10,10,10);
-         kentta.luodamiinat();
+     public void testiCreateNumbersBasetable(){
+         Minefield kentta1 = new Minefield(10, 10, 10);
+         assertTrue(kentta1.basetable[5][5] > -2 && kentta1.basetable[5][5] < 9);       
      }
+     
      @Test
-     public void testiopenNbrofMine(){
-         Minefield kentta = new Minefield(10,10,10);
-         kentta.luodamiinat();
-         assertTrue(kentta.openNbrofMine(3, 3) == true);
+     public void testGametable(){
+         Minefield kentta2 = new Minefield(10, 10, 10);
+         assertTrue(kentta2.gametable[5][5] == "o");
+         
+     }
+     
+     @Test
+     public void testOpensquare(){
+         Minefield kentta3 = new Minefield(10,10,10);
+         if (kentta3.basetable[3][3] == -1){
+             assertTrue(kentta3.Opensquare(3, 3));
+         } else{
+             assertFalse(kentta3.Opensquare(3, 3));
+         }
          
          
      }
+     
      @Test
-     public void testiopenNbrofMine2(){
-         Minefield kentta = new Minefield(10,10,10);
-         kentta.luodamiinat();
-         assertTrue( kentta.openNbrofMine(15, 25) == false);
+     public void testCheckforWin(){
+         Minefield kentta4 = new Minefield(10,10,10);
+         assertFalse(kentta4.CheckforWin());
+         
      }
+     
+
      @Test
-     public void testGetTable(){
-         Minefield kentta = new Minefield(10,10,10);
-         int[][] a = kentta.getTable();
-         assertTrue(a.length == 10);
+     public void testMarktheMine(){
+         Minefield kentta5 = new Minefield(10,10,10);
+         kentta5.MarktheMine(4, 4);
+         assertTrue(kentta5.gametable[4][4] == "X");
+         
      }
+     
      @Test
-     public void testGetGameTable(){
-         Minefield kentta = new Minefield(10,10,10);
-         char[][] b= kentta.getGametable();
-         assertTrue(b.length == 10-2);
+     public void testgetMines(){
+         Minefield kentta6 = new Minefield(10, 10, 10);
+         assertTrue(kentta6.getMines() == 10);
+         
      }
+     
      @Test
-     public void testTulostapelikentta(){
-         Minefield kentta = new Minefield(10,10,10);
-         kentta.Pelikentta();
-         kentta.tulostaPelikentta();
+     public void testgetGametable(){
+         Minefield kentta7 = new Minefield(10,10,10);
+         String[][] b= kentta7.getGametable();
+         assertTrue(b.length == 10-1);
+         
      }
 }
