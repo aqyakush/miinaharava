@@ -15,5 +15,11 @@ Ohjelmoint 1 tunti 3.4
 Testijen tekeminen 1 tunti 5.4
 Ohjelmointi 1 tunti 7.4
 Ohjelmointi 1 tunti 8.4
-Javadocin tekeminen  tuntia 9.4
+Javadocin tekeminen 2 tuntia 9.4
+GUI ohjelmointi 2 tuntia 11.4
+GUi ohjelmointi 2 tuntia 13.4
+MouseListen ohjelmointi 2 tunia 14.4
+Minefield testijen tekeminen 2 tuntia 15.4
+Testijen tekeminen 3 tuntia 17.4
+
 
