@@ -6,6 +6,7 @@
 
 package miinaharava1.miinaharava;
 
+import javax.swing.JFrame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author Anton
  */
-public class AppTest {
+public class GuiTest {
     
-    public AppTest() {
+    public GuiTest() {
     }
     
     @BeforeClass
@@ -38,9 +39,18 @@ public class AppTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+//     @Test
+//     public void GuiTest() {
+//         GUI kayttoliittyma = new GUI();
+//         JFrame frame = kayttoliittyma.frame;
+//     }
+//     @Test
+//     public void GuiTest1() {
+//         GUI kayttoliittyma = new GUI();
+//         JFrame frame = kayttoliittyma.frame;
+//         System.out.println(frame.getComponentCount());
+//         assertTrue(frame.getComponentCount() == 51);
+//     }
+        
+       
 }

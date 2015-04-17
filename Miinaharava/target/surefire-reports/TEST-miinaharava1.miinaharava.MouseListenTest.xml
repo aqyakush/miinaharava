@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="14" failures="0" name="miinaharava1.miinaharava.MinefieldTest" time="0.482" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="miinaharava1.miinaharava.MouseListenTest" time="0.012" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_11\jre\bin"/>
@@ -61,18 +61,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testgetGameover" time="0.019"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testGanetable" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testGanetable1" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testgetMines" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testCreateMines" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testiCreateNumbersBasetable2" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testMarktheMine" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testOpensquare1" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testOpensquare" time="0.001"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testCheckforWin" time="0"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testForWin" time="0.001"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testcreateMines" time="0.001"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testGametable" time="0.002"/>
-  <testcase classname="miinaharava1.miinaharava.MinefieldTest" name="testgetGametable" time="0"/>
+  <testcase classname="miinaharava1.miinaharava.MouseListenTest" name="MouseTest" time="0"/>
 </testsuite>

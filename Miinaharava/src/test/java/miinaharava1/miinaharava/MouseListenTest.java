@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Anton
  */
-public class AppTest {
+public class MouseListenTest {
     
-    public AppTest() {
+    public MouseListenTest() {
     }
     
     @BeforeClass
@@ -38,9 +38,8 @@ public class AppTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void MouseTest(){
+        
+    }
 }

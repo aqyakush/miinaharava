@@ -60,10 +60,28 @@ public class MinefieldTest {
         assertFalse(kentta.getGameover());
      }
      
+//     @Test
+//     public void testiCreateNumbersBasetable(){
+//         Minefield kentta1 = new Minefield(10, 10, 10);
+//         int[][] basefield = kentta1.getBasetable();
+//         for(int i=0; i<kentta1.hight; i++){
+//             for(int j=0; j<kentta1.hight; j++){
+//                 assertTrue(basefield[i][j] > -2 && basefield[i][j] < 9);    
+//             }
+//         }          
+//     }
+//     
+//     @Test
+//     public void testiCreateNumbersBasetable1(){
+//         Minefield kentta1 = new Minefield(10, 10, 10);
+//         int[][] basefield = kentta1.getBasetable();
+//         assertTrue(basefield[5][5] > -2 && basefield[5][5] < 9);       
+//     }
      @Test
-     public void testiCreateNumbersBasetable(){
+     public void testiCreateNumbersBasetable2(){
          Minefield kentta1 = new Minefield(10, 10, 10);
-         assertTrue(kentta1.basetable[5][5] > -2 && kentta1.basetable[5][5] < 9);       
+         int[][] basefield = kentta1.getBasetable();
+         assertTrue(basefield[5][5] > -2 && basefield[5][5] < 9); 
      }
      
      @Test
@@ -78,11 +96,23 @@ public class MinefieldTest {
          Minefield kentta3 = new Minefield(10,10,10);
          if (kentta3.basetable[3][3] == -1){
              assertTrue(kentta3.Opensquare(3, 3));
-         } else{
+         } else {
              assertFalse(kentta3.Opensquare(3, 3));
+         }  
+     }
+     @Test 
+     public void testOpensquare1(){
+         Minefield kentta = new Minefield(6,6,6);
+         if(kentta.basetable[2][2] != -1){
+            kentta.Opensquare(2, 2);
+            if(kentta.gametable[2][2] != " "){
+                assertTrue(kentta.basetable[2][2] == Integer.parseInt(kentta.gametable[2][2]));
+            } else{
+                assertEquals(kentta.gametable[2][2], " ");
+            }
+         } if (kentta.basetable[2][2] == -1){
+             assertTrue(kentta.getGameover());
          }
-         
-         
      }
      
      @Test
@@ -115,4 +145,30 @@ public class MinefieldTest {
          assertTrue(b.length == 10-1);
          
      }
+     
+     @Test
+     public void testCreateMines(){
+         Minefield kentta = new Minefield(10,10,10);
+         int[][] basefield = kentta.getBasetable();
+         int miinat = 10;
+         for(int i=0; i<kentta.hight; i++){
+             for(int j=0; j<kentta.hight; j++){
+                 if(basefield[i][j] == -1){
+                     miinat--;
+                 }
+             }
+         }
+         assertTrue(miinat == 0);
+     }
+     @Test
+     public void testForWin(){
+         Minefield kentta = new Minefield(10,10,10);
+         for(int i=0; i<kentta.hight; i++){
+             for(int j=0; j<kentta.hight; j++){
+                 kentta.Opensquare(i, j);
+             }
+         }
+         assertTrue(kentta.CheckforWin());  
+     }
+     
 }

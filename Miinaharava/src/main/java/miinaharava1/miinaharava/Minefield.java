@@ -17,7 +17,6 @@ public final class Minefield {
     public int hight; // pelikentän korkeus
     public int width; // peilikentän leveys
     public int mines; // miinojen luku
-    private int markedMines; //merkkattujen miinojen luku
     public int[][]basetable;
     public String[][]gametable;
     private boolean gameover; // arvo on true jos astuit miinan päälle
@@ -62,7 +61,7 @@ public final class Minefield {
     
     private void CreateNumbersBasetable(){
         for(int i=0; i < this.hight;i++){
-            for(int j=0; j < this.width; j++){ 
+            for(int j=0; j < this.hight; j++){ 
                 if (this.basetable[i][j] == -1){
                     if(this.basetable[i-1][j-1] != -1) this.basetable[i-1][j-1]++; //tässä käydään kaikki paikat miinan ympäri ja jos siellä ei ole miinaa
                     if(this.basetable[i-1][j] != -1) this.basetable[i-1][j]++; // kasvatettaan paikan arvo ykkösellä
@@ -189,53 +188,8 @@ public final class Minefield {
     */
     public String[][] getGametable(){
         return this.gametable;
+
     }
-//    public void PrintBasetable(){
-//        for(int i=0; i < this.hight;i++){
-//            System.out.print(i + " ");
-//            for(int j=0; j < this.width; j++){
-//                System.out.print(this.basetable[i][j] + " ");
-//            }
-//            System.out.println("");
-//        }   
-//    }
-//    
-//    public void printGametable(){
-//        System.out.print("   ");   
-//        for (int i = 1; i<this.gametable[1].length; i++) {          
-//            if (i>=this.width-2) {  
-//            System.out.print(i+" ");  
-//            }  
-//            else {  
-//                System.out.print(i+"  ");  
-//            }  
-//        }  
-//        System.out.println();  
-//  
-//          
-//        System.out.print("   ");  
-//        for (int i=1; i<this.gametable[1].length; i++) {  
-//            System.out.print("---");  
-//        }  
-//        System.out.println();  
-//  
-//      
-//        for (int i=1; i<this.gametable.length; i++) {           
-//            if(i>=this.hight-1) {  
-//            System.out.print(i+" |");  
-//            }  
-//            else {  
-//                System.out.print(i+"|");  
-//            }  
-//            for (int j = 1; j<this.gametable[i].length; j++) {  
-//                System.out.print(this.gametable[i][j]+"  ");  
-//            }  
-//            System.out.print("|");  
-//            System.out.println();  
-//        }  
-//        System.out.println("Miinojen määrä on " + this.mines);
-//   
-//    }
     
     
 }
