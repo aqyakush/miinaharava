@@ -7,8 +7,10 @@
 package miinaharava1.miinaharava;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,10 +31,10 @@ public class GUI implements Runnable {
     private int row;
     private Minefield peli;
     
-    public GUI(){
-        this.row=7; 
-        this.col=7; 
-        this.peli = new Minefield(col+2, row+2, 6);
+    public GUI(int row, int col, int mines){
+        this.row=row; 
+        this.col=col; 
+        this.peli = new Minefield(col+2, row+2, mines);
         
     }
     /**
@@ -42,7 +44,13 @@ public class GUI implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("MineSweeper");
-        frame.setPreferredSize(new Dimension(400, 400)); //kentän koko on 400*400
+        if(this.col == 5){
+            frame.setPreferredSize(new Dimension(400, 400)); //kentän koko on 400*400
+        } else if(this.col == 15){
+            frame.setPreferredSize(new Dimension(900, 900)); //kentän koko on 400*400
+        } else if(this.col == 25){
+            frame.setPreferredSize(new Dimension(1300, 1300)); //kentän koko on 400*400
+        }
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
    
@@ -63,9 +71,9 @@ public class GUI implements Runnable {
      */
     private void luoKomponentit(Container container) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
-        JLabel mines = new JLabel("mines");
+        JLabel mines = new JLabel(Integer.toString(this.peli.mines));
         JButton restart = new JButton("Restart");
-        JLabel time =new JLabel("time");
+        TimerDisplay time = new TimerDisplay();
         panel.add(mines);
         panel.add(restart);
         panel.add(time);
@@ -74,8 +82,8 @@ public class GUI implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) { // silloin kun painetaan restart, suljetaan vanha JFram ja luodaan uusi
                 frame.dispose();
-                GUI kayttoliittyma = new GUI();
-                SwingUtilities.invokeLater(kayttoliittyma);
+                Configuration config = new Configuration();
+                SwingUtilities.invokeLater(config);
                   
             }
         });
@@ -86,11 +94,13 @@ public class GUI implements Runnable {
         for(int i=0; i<this.row;i++){
             for(int j=0; j<this.col; j++){
                 nappi[i][j] = new JButton();
+                nappi[i][j].setFont(new Font("Arial", Font.BOLD, 25));
+                nappi[i][j].setBackground(Color.LIGHT_GRAY);
                 kentta.add(nappi[i][j]);
-                nappi[i][j].addMouseListener(new MouseListen(i, j, this.peli, nappi, frame)); // jokaisella napille laitettaan hiirenKuuntelija
+                nappi[i][j].addMouseListener(new MouseListen(i, j, this.peli, nappi, frame, mines, time)); // jokaisella napille laitettaan hiirenKuuntelija
             }
         }
-        
+        time.start();
         container.setLayout(new BorderLayout());
         container.add(panel, BorderLayout.NORTH); // Miinat, Restart, Aika laitettaan ylös
         container.add(kentta, BorderLayout.CENTER); // kentä on alhalla

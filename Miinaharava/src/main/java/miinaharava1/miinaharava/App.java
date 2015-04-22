@@ -10,8 +10,8 @@ import javax.swing.SwingUtilities;
 public class App 
 {
     public static void main( String[] args )    {
-        GUI kayttoliittyma = new GUI();
-        SwingUtilities.invokeLater(kayttoliittyma);
+        Configuration config = new Configuration();
+        SwingUtilities.invokeLater(config);
     }
       
 }
