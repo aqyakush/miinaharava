@@ -30,10 +30,12 @@ public class GUI implements Runnable {
     private int col;
     private int row;
     private Minefield peli;
+    private int miinat;
     
     public GUI(int row, int col, int mines){
         this.row=row; 
         this.col=col; 
+        this.miinat = mines;
         this.peli = new Minefield(col+2, row+2, mines);
         
     }
@@ -72,6 +74,7 @@ public class GUI implements Runnable {
     private void luoKomponentit(Container container) {
         JPanel panel = new JPanel(new GridLayout(1, 3));
         JLabel mines = new JLabel(Integer.toString(this.peli.mines));
+        mines.setHorizontalAlignment(JLabel.CENTER);
         JButton restart = new JButton("Restart");
         TimerDisplay time = new TimerDisplay();
         panel.add(mines);
@@ -82,9 +85,8 @@ public class GUI implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) { // silloin kun painetaan restart, suljetaan vanha JFram ja luodaan uusi
                 frame.dispose();
-                Configuration config = new Configuration();
-                SwingUtilities.invokeLater(config);
-                  
+                GUI peli = new GUI(row, col, miinat);
+                SwingUtilities.invokeLater(peli);                
             }
         });
 
@@ -95,15 +97,28 @@ public class GUI implements Runnable {
             for(int j=0; j<this.col; j++){
                 nappi[i][j] = new JButton();
                 nappi[i][j].setFont(new Font("Arial", Font.BOLD, 25));
-                nappi[i][j].setBackground(Color.LIGHT_GRAY);
+                nappi[i][j].setBackground(Color.GRAY);
                 kentta.add(nappi[i][j]);
                 nappi[i][j].addMouseListener(new MouseListen(i, j, this.peli, nappi, frame, mines, time)); // jokaisella napille laitettaan hiirenKuuntelija
             }
         }
+        JPanel configur = new JPanel(new GridLayout(1, 1));
+        JButton config = new JButton("Vaihtaa vaikeusaste");
+        config.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Configuration config = new Configuration();
+                SwingUtilities.invokeLater(config);     
+            }
+        });
+        configur.add(config);
         time.start();
         container.setLayout(new BorderLayout());
         container.add(panel, BorderLayout.NORTH); // Miinat, Restart, Aika laitettaan ylös
         container.add(kentta, BorderLayout.CENTER); // kentä on alhalla
+        container.add(configur, BorderLayout.SOUTH);
 
     }
     

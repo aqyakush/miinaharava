@@ -69,7 +69,7 @@ class MouseListen implements MouseListener {
             this.peli.mines = 0;
             mine.setText(Integer.toString(this.peli.mines));
             time.stop();
-            JOptionPane.showMessageDialog(this.frame, "You won!! Press Restart to start a new game. Aikasi on " + this.time.getSeconds() + " s");
+            JOptionPane.showMessageDialog(this.frame, "You won!! Press Restart to start a new game. Aikasi on " + this.time.getMinutes() + ":" + this.time.getSeconds());
             
         }
         if(e.getButton()==1){
@@ -157,8 +157,9 @@ class MouseListen implements MouseListener {
                       }  
                   } else{
                       if(this.gametable[r+1][c+1] == "o"){
+                        this.nappit[r][c].setText("");  
                         this.nappit[r][c].setIcon(minepic);
-                        this.nappit[r][c].setBackground(Color.PINK);
+                        this.nappit[r][c].setBackground(Color.white);
 //                        this.nappit[r][c].setEnabled(false);
                     } else {
                         this.nappit[r][c].setText(this.gametable[r+1][c+1]);

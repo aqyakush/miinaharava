@@ -60,5 +60,6 @@ public class TimerDisplay extends JLabel {
         seconds=-1;
         setText(""+0);    
     }
-    public int getSeconds() {return seconds + minutes*60;}
+    public int getSeconds() {return seconds;}
+    public int getMinutes() {return minutes;}
 }

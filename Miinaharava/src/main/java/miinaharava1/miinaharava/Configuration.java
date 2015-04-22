@@ -8,6 +8,7 @@ package miinaharava1.miinaharava;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
@@ -32,7 +33,7 @@ public class Configuration implements Runnable {
     @Override
     public void run() {
         config = new JFrame("MineSweeper");
-        config.setPreferredSize(new Dimension(200, 300)); //kentän koko on 400*400
+        config.setPreferredSize(new Dimension(200, 200)); //kentän koko on 400*400
 
         config.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
    
@@ -50,6 +51,7 @@ public class Configuration implements Runnable {
         JRadioButton easy = new JRadioButton("Easy");
         JRadioButton medium = new JRadioButton("Medium");
         JRadioButton hard = new JRadioButton("Hard");
+        easy.setFont(new Font("Arial", Font.BOLD, 40));
         easy.addActionListener(new ActionListener() {
 
             @Override
