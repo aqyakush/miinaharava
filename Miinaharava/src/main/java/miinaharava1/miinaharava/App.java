@@ -4,8 +4,9 @@ import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**
- * Hello world!
- *
+ * @author      aqyakush
+ * @version     1.0       (current version number of program)
+ * @since       2015-03-10     
  */
 public class App 
 {

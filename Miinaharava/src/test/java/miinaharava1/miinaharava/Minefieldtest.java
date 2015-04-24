@@ -110,7 +110,7 @@ public class MinefieldTest {
             } else{
                 assertEquals(kentta.gametable[2][2], " ");
             }
-         } if (kentta.basetable[2][2] == -1){
+         } else {
              assertTrue(kentta.getGameover());
          }
      }
@@ -128,6 +128,13 @@ public class MinefieldTest {
          Minefield kentta5 = new Minefield(10,10,10);
          kentta5.MarktheMine(4, 4);
          assertTrue(kentta5.gametable[4][4] == "X");
+         
+     }
+     @Test
+     public void testMarktheMine1(){
+         Minefield kentta5 = new Minefield(10,10,10);
+         kentta5.MarktheMine(4, 4);
+         assertTrue(kentta5.mines == 9);
          
      }
      
@@ -169,6 +176,24 @@ public class MinefieldTest {
              }
          }
          assertTrue(kentta.CheckforWin());  
+     }
+     @Test 
+     public void testopenSquare(){
+         Minefield kentta9 = new Minefield(10,10,10);
+         kentta9.Opensquare(2, 2);
+         if (kentta9.basetable[2][2] == 0){
+             assertFalse(kentta9.gametable[1][1].equals("o"));
+             assertFalse(kentta9.gametable[1][2].equals("o"));
+             assertFalse(kentta9.gametable[1][3].equals("o"));
+             assertFalse(kentta9.gametable[2][1].equals("o"));
+             assertFalse(kentta9.gametable[2][3].equals("o"));
+             assertFalse(kentta9.gametable[3][1].equals("o"));
+             assertFalse(kentta9.gametable[3][2].equals("o"));
+             assertFalse(kentta9.gametable[3][3].equals("o"));
+         } if (kentta9.basetable[2][2] != 0 && kentta9.basetable[2][2] !=-1){
+             assertFalse(kentta9.gametable[2][2].equals(" "));
+             assertFalse(kentta9.gametable[2][2].equals("o"));
+         }
      }
      
 }

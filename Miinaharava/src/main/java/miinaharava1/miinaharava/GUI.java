@@ -22,7 +22,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 /**
- *
+ * 
  * @author Anton
  */
 public class GUI implements Runnable {
@@ -32,6 +32,14 @@ public class GUI implements Runnable {
     private Minefield peli;
     private int miinat;
     
+    /**
+     * Pelin varsinnainen alusta, missä itse peli tapahtuu
+     * 
+     * @param row kentän rivijen määrä
+     * @param col kentän sarakkeiden määrä
+     * @param mines miinojen määr'
+     */
+    
     public GUI(int row, int col, int mines){
         this.row=row; 
         this.col=col; 
@@ -40,7 +48,8 @@ public class GUI implements Runnable {
         
     }
     /**
-     *  Luodaan JFrame jostain kutsutaan methodi luoKomponetit
+     *  Luodaan JFrame josta kutsutaan methodi luoKomponetit
+     *  ja riipujen siitä kuinka iso kenttä, valittaa framen koko
      */
 
     @Override
@@ -102,8 +111,9 @@ public class GUI implements Runnable {
                 nappi[i][j].addMouseListener(new MouseListen(i, j, this.peli, nappi, frame, mines, time)); // jokaisella napille laitettaan hiirenKuuntelija
             }
         }
-        JPanel configur = new JPanel(new GridLayout(1, 1));
-        JButton config = new JButton("Vaihtaa vaikeusaste");
+        JPanel Spanel = new JPanel(new GridLayout(1, 1));
+        JButton config = new JButton("Change difficulty ");
+//        JButton recordtable = new JButton("Tarkistaa ennatykset");
         config.addActionListener(new ActionListener() {
 
             @Override
@@ -113,12 +123,21 @@ public class GUI implements Runnable {
                 SwingUtilities.invokeLater(config);     
             }
         });
-        configur.add(config);
+//        recordtable.addActionListener(new ActionListener() {
+//
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                RecordTable records = new RecordTable();
+//                SwingUtilities.invokeLater(records);
+//            }
+//        });
+        Spanel.add(config);
+//        Spanel.add(recordtable);
         time.start();
         container.setLayout(new BorderLayout());
         container.add(panel, BorderLayout.NORTH); // Miinat, Restart, Aika laitettaan ylös
         container.add(kentta, BorderLayout.CENTER); // kentä on alhalla
-        container.add(configur, BorderLayout.SOUTH);
+        container.add(Spanel, BorderLayout.SOUTH);
 
     }
     

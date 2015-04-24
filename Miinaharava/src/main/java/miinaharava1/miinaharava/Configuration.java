@@ -25,15 +25,16 @@ import javax.swing.WindowConstants;
  */
 public class Configuration implements Runnable {
     JFrame config;
-
+    
     /**
-     * @param args the command line arguments
+     * Luodaan frame Configuration valikolle
+     * 
      */
 
     @Override
     public void run() {
-        config = new JFrame("MineSweeper");
-        config.setPreferredSize(new Dimension(200, 200)); //kentän koko on 400*400
+        config = new JFrame("Configuration");
+        config.setPreferredSize(new Dimension(300, 200)); //kentän koko on 300X200
 
         config.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
    
@@ -43,15 +44,25 @@ public class Configuration implements Runnable {
         config.setVisible(true);
         
     }
+    
+    /**
+     * luodaan framen kaikki napit ja kentät tässä metodissa
+     * 
+     * @param container frame config
+     */
 
     private void luoKomponentit(Container container) {
-        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
         container.setLayout(layout);
-        container.add(new JLabel("Valitsee vaikeaus aste:"));
+        JLabel pick = new JLabel("Valitse vaikeaus aste:");
+        pick.setFont(new Font("Arial", Font.BOLD, 20));
+        container.add(pick);
         JRadioButton easy = new JRadioButton("Easy");
         JRadioButton medium = new JRadioButton("Medium");
         JRadioButton hard = new JRadioButton("Hard");
-        easy.setFont(new Font("Arial", Font.BOLD, 40));
+        easy.setFont(new Font("Arial", Font.BOLD, 15));
+        medium.setFont(new Font("Arial", Font.BOLD, 15));
+        hard.setFont(new Font("Arial", Font.BOLD, 15));
         easy.addActionListener(new ActionListener() {
 
             @Override

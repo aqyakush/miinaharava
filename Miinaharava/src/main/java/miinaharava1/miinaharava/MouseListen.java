@@ -69,7 +69,7 @@ class MouseListen implements MouseListener {
             this.peli.mines = 0;
             mine.setText(Integer.toString(this.peli.mines));
             time.stop();
-            JOptionPane.showMessageDialog(this.frame, "You won!! Press Restart to start a new game. Aikasi on " + this.time.getMinutes() + ":" + this.time.getSeconds());
+            JOptionPane.showMessageDialog(this.frame, "You won!! Press Restart to start a new game. Aikasi on " + this.time.getTime());
             
         }
         if(e.getButton()==1){
@@ -79,23 +79,30 @@ class MouseListen implements MouseListener {
                JOptionPane.showMessageDialog(this.frame, "You LOST!! Press Restart to start a new game");
                
             } else{
-                if (this.nappit[this.i][this.j].getText().equals("X")){
+                if (this.nappit[this.i][this.j].getIcon() != null && this.nappit[this.i][this.j].getIcon().getIconHeight() == redflag.getIconHeight()){
+                    this.nappit[this.i][this.j].setIcon(null);
                     this.peli.mines++;
                 }
                 openField(button);
             }
         }  else if(e.getButton() == 3){
-            if(this.nappit[this.i][this.j].getText().equals("X")){
-                this.nappit[this.i][this.j].setText(" ");
+            if(this.nappit[this.i][this.j].getIcon() != null && this.nappit[this.i][this.j].getIcon().getIconHeight() == redflag.getIconHeight()){
+                this.nappit[this.i][this.j].setIcon(null);
                 this.peli.mines++;
             } else{
-                this.nappit[this.i][this.j].setText("X");
+                this.nappit[this.i][this.j].setIcon(redflag);
                 this.peli.mines--;
             }
         }
         mine.setText(Integer.toString(this.peli.mines));
         
     }
+    
+    /**
+     * Jokaiselle numerolle annettaan oma väri, että ne eroituis paremmin pelaessa
+     * 
+     * @param button nappi johon painettiin 
+     */
     
     public void ColorButton(JButton button){
         if (button.getText().equals("1")){
@@ -142,6 +149,12 @@ class MouseListen implements MouseListener {
             }
         }
     }
+    /**
+     * avataan kentän kaikki ruudut, metodi kutsuttaan siinä tapauksessa kun peli
+     * on voitettu tai hävitetty
+     * 
+     * @param winlose true jos voitettu, false jos hävitetty
+     */
     public void openAllfield(boolean winlose){
         Icon minepic = new ImageIcon("mine.gif");
         for(int r=0; r<this.gametable.length-1;r++){

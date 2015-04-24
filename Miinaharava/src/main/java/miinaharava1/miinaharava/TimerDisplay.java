@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package miinaharava1.miinaharava;
 
@@ -20,11 +15,22 @@ public class TimerDisplay extends JLabel {
     private int minutes=0;
     private java.util.Timer timer;
     
+    
+    /**
+     *  luodaan ajasti joka alkaa toimia kun peli alkaa ja sitten pysähtyy kun peli 
+     *  on voitettu tai hävitetty
+     */
     public TimerDisplay(){
         setForeground(Color.red);
         setHorizontalAlignment(JLabel.CENTER);
         setText(""+0);
     }
+    
+    
+    /**
+     * Alkaa ajan lasku
+     * 
+     */
     public void start() {
         timer=new java.util.Timer();
             TimerTask task=new TimerTask() {
@@ -38,28 +44,50 @@ public class TimerDisplay extends JLabel {
                         } else {
                             seconds++;                       
                         }
-                        if(seconds > 10){
+                        if(seconds > 9){
                             setText(String.valueOf(minutes) + ":" + String.valueOf(seconds));  
                         } else {
                             setText(String.valueOf(minutes) + ":" + "0" + String.valueOf(seconds));
-                        }
-                                          
-                        //setText(""+nbSeconds);                      
+                        }                     
                     }
-
                 }
             };
         timer.scheduleAtFixedRate(task,0,STEPS);
     }
+    
+    /**
+     * pysäyttää kello
+     */
     public void stop() {
         timer.cancel();
     }
     
+    /**
+     * pistää kello nollaksi
+     * 
+     */
     public void reset() {
         timer.cancel();
         seconds=-1;
         setText(""+0);    
     }
-    public int getSeconds() {return seconds;}
-    public int getMinutes() {return minutes;}
+    
+    /**
+     * Palauttaa String jono, jossa lukee aika
+     * 
+     * @return palauttaa aika, kun peli oli suoritettu loppuun
+     */
+    public String getTime() {
+        String second;
+        if (seconds > 9){
+             second = Integer.toString(seconds);
+        } else {
+             second = "0"+Integer.toString(seconds);
+        }
+        String aika = Integer.toString(minutes) + ":" + second;
+        return aika;  
+    }
+    
+    public int getSeconds(){return seconds;}
+    public int getMinutes(){return minutes;}
 }
