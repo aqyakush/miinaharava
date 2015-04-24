@@ -21,5 +21,9 @@ GUi ohjelmointi 2 tuntia 13.4
 MouseListen ohjelmointi 2 tunia 14.4
 Minefield testijen tekeminen 2 tuntia 15.4
 Testijen tekeminen 3 tuntia 17.4
+Configuration luokan ohjelmointi 2 tuntia 20.4
+TimerDisplay luokan ohjelmointi 2 tuntia 21.4
+Sevenssikaavion tekeminen ja luokkakaavion päivittäminen 2 tuntia 23.4
+Testijen ja Junitin tekeminen 2 tuntia 24.4
 
 
