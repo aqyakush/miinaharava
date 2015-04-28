@@ -87,7 +87,7 @@ public class MinefieldTest {
      @Test
      public void testGametable(){
          Minefield kentta2 = new Minefield(10, 10, 10);
-         assertTrue(kentta2.gametable[5][5] == "o");
+         assertTrue(kentta2.gametable[5][5].equals("o"));
          
      }
      
@@ -127,7 +127,7 @@ public class MinefieldTest {
      public void testMarktheMine(){
          Minefield kentta5 = new Minefield(10,10,10);
          kentta5.MarktheMine(4, 4);
-         assertTrue(kentta5.gametable[4][4] == "X");
+         assertTrue(kentta5.gametable[4][4].equals("X"));
          
      }
      @Test

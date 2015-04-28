@@ -69,7 +69,7 @@ class MouseListen implements MouseListener {
             this.peli.mines = 0;
             mine.setText(Integer.toString(this.peli.mines));
             time.stop();
-            JOptionPane.showMessageDialog(this.frame, "You won!! Press Restart to start a new game. Aikasi on " + this.time.getTime());
+            JOptionPane.showMessageDialog(this.frame, "You WON!! Your time is " + this.time.getTime() + " Press Restart to start a new game.");
             
         }
         if(e.getButton()==1){

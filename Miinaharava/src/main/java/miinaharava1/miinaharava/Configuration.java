@@ -34,7 +34,7 @@ public class Configuration implements Runnable {
     @Override
     public void run() {
         config = new JFrame("Configuration");
-        config.setPreferredSize(new Dimension(300, 200)); //kentän koko on 300X200
+        config.setPreferredSize(new Dimension(250, 200)); //kentän koko on 300X200
 
         config.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
    
@@ -52,22 +52,22 @@ public class Configuration implements Runnable {
      */
 
     private void luoKomponentit(Container container) {
-        BoxLayout layout = new BoxLayout(container, BoxLayout.X_AXIS);
+        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-        JLabel pick = new JLabel("Valitse vaikeaus aste:");
-        pick.setFont(new Font("Arial", Font.BOLD, 20));
+        JLabel pick = new JLabel("Pick a difficulty level:");
+        pick.setFont(new Font("Arial", Font.PLAIN, 25));
         container.add(pick);
         JRadioButton easy = new JRadioButton("Easy");
         JRadioButton medium = new JRadioButton("Medium");
         JRadioButton hard = new JRadioButton("Hard");
-        easy.setFont(new Font("Arial", Font.BOLD, 15));
-        medium.setFont(new Font("Arial", Font.BOLD, 15));
-        hard.setFont(new Font("Arial", Font.BOLD, 15));
+        easy.setFont(new Font("Arial", Font.PLAIN, 20));
+        medium.setFont(new Font("Arial", Font.PLAIN, 20));
+        hard.setFont(new Font("Arial", Font.PLAIN, 20));
         easy.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                GUI peli = new GUI(5,5,4);
+                GUI peli = new GUI(5,5,3);
                 SwingUtilities.invokeLater(peli);
                 config.dispose();
             }
