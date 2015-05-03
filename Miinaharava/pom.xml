@@ -44,13 +44,33 @@
             <version>1.1.4</version>
             <configuration>
                 <targetClasses>
-                    <param>miinaharava1.miinaharava.*</param>
+                    <param>miinaharava.*</param>
                 </targetClasses>
                 <targetTests>
-                    <param>miinaharava1.miinaharava.*</param>
+                    <param>miinaharava.*</param>
                 </targetTests>
             </configuration>
             </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.2</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>miinaharava.main.App</mainClass>
+                            </transformer>
+                        </transformers>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
     </build>
 
