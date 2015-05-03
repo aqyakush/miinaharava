@@ -25,5 +25,10 @@ Configuration luokan ohjelmointi 2 tuntia 20.4
 TimerDisplay luokan ohjelmointi 2 tuntia 21.4
 Sevenssikaavion tekeminen ja luokkakaavion päivittäminen 2 tuntia 23.4
 Testijen ja Junitin tekeminen 2 tuntia 24.4
+RecordTablin ohjemointi 2 tuntia 25.4
+Recordsin ohjelmointi 2 tuntia 26.4
+Pienia muutoksia ohjelmaan 3 tuntia 28.4
+Rakennekuvaukset ja käyttöohjeiden kirjoittaminen 2 tuntia 2.5
+Viimeistely 1 tunti 3.5
 
 
